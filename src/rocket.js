@@ -5,7 +5,6 @@ import {
   MAX_EXPLOSION_SIZE,
   EXPLOSION_PARTICLES,
   EXPLOSION_SIZE_FACTOR,
-  ROCKET_LIFETIME_RANDOMIZER,
   ROCKET_DEFAULT_LIFETIME,
   ROCKET_DEFAULT_SPEED,
   ROCKET_DEFAULT_DIRECTION,
@@ -21,9 +20,7 @@ export class Rocket extends Particle {
     lifetime = ROCKET_DEFAULT_LIFETIME,
   }) {
     super(x, y, color, direction, speed);
-    this.lifetime =
-      lifetime +
-      Math.random() * (lifetime / (ROCKET_LIFETIME_RANDOMIZER * 1.5));
+    this.lifetime = lifetime;
     this.color = color;
     this.type = "rocket";
     this.explosions = Math.floor(Math.random() * MAX_EXPLOSIONS) + 1;

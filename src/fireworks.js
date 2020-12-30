@@ -68,6 +68,7 @@ export const Fireworks = ({ drawer }) => {
     const shootMultiple = Math.random() < ROCKET_MULTIPLE_PROBABILITY;
     const x =
       SIDE_PADDING + Math.random() * drawer.canvas.width - SIDE_PADDING * 2;
+    const lifetime = drawer.canvas.height * ROCKET_DEFAULT_LIFETIME;
 
     if (Math.random() < state.frequency) {
       const shootRocket = () =>
@@ -81,9 +82,7 @@ export const Fireworks = ({ drawer }) => {
               Math.random() * ROCKET_DIRECTION_RANDOMIZER,
             speed:
               ROCKET_DEFAULT_SPEED + Math.random() * ROCKET_SPEED_RANDOMIZER,
-            lifetime:
-              (drawer.canvas.height / ROCKET_DEFAULT_LIFETIME) *
-              ROCKET_DEFAULT_LIFETIME,
+            lifetime,
           })
         );
       if (shootMultiple) {

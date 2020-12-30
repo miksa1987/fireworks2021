@@ -68,15 +68,6 @@ export class Particle {
       this.lifetime = 0;
       this.alive = false;
     }
-    if (
-      this.type === "rocket" &&
-      this.y > window.innerHeight / SKY_LOWER_LIMIT_FACTOR &&
-      this.movement.y > ROCKET_TOO_LOW_SPEED_THRESHOLD
-    ) {
-      this.lifetime += ROCKET_LIFETIME_INCREASE;
-      this.movement.y = ROCKET_BOOST_INCREASE;
-    }
-
     if (this.lifetime < 0) {
       this.alive = false;
     }
