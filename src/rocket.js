@@ -24,6 +24,10 @@ export class Rocket extends Particle {
     this.color = color;
     this.type = "rocket";
     this.explosions = Math.floor(Math.random() * MAX_EXPLOSIONS) + 1;
+
+    while (this.lifetime > 100) {
+      this.lifetime = this.lifetime - Math.random() * 10;
+    }
   }
 
   explode() {
